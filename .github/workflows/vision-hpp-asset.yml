@@ -60,15 +60,28 @@ jobs:
 #
 #          java -cp build/classes/java/main \
 #            com.example.demo.service.HppAssetPayloadProcessor payload.json
-      - name: Run Java Payload Processor
+#      - name: Run Java Payload Processor
+#        run: |
+#
+#          chmod +x mvnw
+#
+#          ./mvnw clean compile
+#
+#          ./mvnw exec:java \
+#          -Dexec.mainClass="com.example.demo.service.HppAssetPayloadProcessor" \
+#          -Dexec.args="payload.json"
+      - name: Build Maven Project
         run: |
 
           chmod +x mvnw
-
           ./mvnw clean compile
 
-          java -cp target/classes \
-            com.example.demo.service.HppAssetPayloadProcessor payload.json
+      - name: Run Java Payload Processor
+        run: |
+
+          ./mvnw exec:java \
+            -Dexec.mainClass="com.example.demo.service.HppAssetPayloadProcessor" \
+            -Dexec.args="payload.json"
 
       - name: Commit Changes
         run: |
