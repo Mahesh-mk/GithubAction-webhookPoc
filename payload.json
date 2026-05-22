@@ -1,0 +1,9 @@
+{
+  "files": [
+    {
+      "content": "{\"hello\":\"world\"}",
+      "path": "assets/test.json"
+    }
+  ],
+  "projectId": "CPD-1234"
+}
